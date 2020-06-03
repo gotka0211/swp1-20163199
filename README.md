@@ -1,2 +1,2 @@
 # 2016xxxx 	Joonghyeon Kim
-# Kookmin Univ. SW
+# Kookmin Univ. computer science
