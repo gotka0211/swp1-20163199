@@ -7,12 +7,10 @@ def application(environ, start_response):
 	b = d.get('b',[''])[0]
 	sum, mul = 0, 0
 	if '' not in [a,b]:
-		a,b,c=int(a),int(b)
-		x = [n/10.0 for n in range(-40,41)]
-		y = [a *n**2 + b*n +c for n in x]
+		a,b =int(a),int(b)
 		sum = a+b
 		mul = a*b
-	response_body = html % {'sum':sum, 'mul':mu;}
+	response_body = html % {'sum':sum, 'mul':mul}
 	start_response('200 OK',[
 		('Content-Type', 'text/html'),
 		('Content-Length',str(len(response_body)))])
