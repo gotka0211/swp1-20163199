@@ -8,7 +8,8 @@ html = """
 		</form>
 		a = %(a)s , b = %(b)s <br><br><br>
 		Sum = %(sum)s <br><br>
-		Mul = %(mul)s	
+		Mul = %(mul)s <br><br><br>
+                Message : %(message)s
 	</body>
 </html>
 """
