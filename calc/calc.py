@@ -13,7 +13,11 @@ def application(environ, start_response):
 		else :
 			sum = 'Error'
 			mul = 'Error'
-	else : a,b = 'None','None'
+	else : 
+		if [a,b][0]== '': a = 'None'
+                else : sum,mul = 'Error','Error'
+                if [a,b][1]== '': b = 'None'
+                else : sum,mul = 'Error','Error'
 	response_body = html % {'a':a, 'b':b, 'sum':str(sum), 'mul':str(mul)}
 	start_response('200 OK',[
 		('Content-Type', 'text/html'),
