@@ -6,19 +6,26 @@ def application(environ, start_response):
 	a = d.get('a',[''])[0]
 	b = d.get('b',[''])[0]
 	sum, mul = 'None','None' 
-	if '' not in [a,b]:
-		if a.isdigit() and b.isdigit():
-			sum = int(a)+int(b)
-			mul = int(a)*int(b)
-		else :
-			sum = 'Error'
-			mul = 'Error'
-	else : 
-		if [a,b][0]== '': a = 'None'
-                else : sum,mul = 'Error','Error'
+	message = 'Please Enter Values of a and b.'
+        if '' not in [a,b]:
+                if a.isdigit() and b.isdigit():
+                        sum = int(a)+int(b)
+                        mul = int(a)*int(b)
+                        message = 'Well Done!'
+                else : 
+                        sum = 'Error'
+                        mul = 'Error'
+                        message = 'Please Enter Inteagers.'
+        else : 
+                if [a,b][0]== '': a = 'None'
+                else : 
+                        sum,mul = 'Error','Error'
+                        message = 'Please Enter a Value of b.'
                 if [a,b][1]== '': b = 'None'
-                else : sum,mul = 'Error','Error'
-	response_body = html % {'a':a, 'b':b, 'sum':str(sum), 'mul':str(mul)}
+                else :
+                        sum,mul = 'Error','Error'
+                        message = 'Please Enter a Value of a.'
+        response_body = html % {'a':a, 'b':b, 'sum':str(sum), 'mul':str(mul), 'message':message}
 	start_response('200 OK',[
 		('Content-Type', 'text/html'),
 		('Content-Length',str(len(response_body)))])
